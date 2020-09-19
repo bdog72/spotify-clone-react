@@ -9,6 +9,7 @@ import { getTokenFromUrl } from './spotify';
 
 import SpotifyWebApi from 'spotify-web-api-js';
 import Player from './components/Player';
+
 import { useDataLayerValue } from './DataLayer';
 
 const spotify = new SpotifyWebApi();
@@ -36,6 +37,12 @@ function App() {
         dispatch({
           type: 'SET_USER',
           user: user,
+        });
+      });
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: 'SET_PLAYLISTS',
+          playlists: playlists,
         });
       });
     }
