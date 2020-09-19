@@ -45,6 +45,18 @@ function App() {
           playlists: playlists,
         });
       });
+      spotify.getPlaylist('5JZIMFv2aXvRvqzAsFArM0').then((response) => {
+        dispatch({
+          type: 'MELODIC_TECHNO',
+          melodicTechno: response,
+        });
+      });
+      // spotify.getPlaylist('2M7Q8K6OiDEcm9inqV6xxS').then((response) => {
+      //   dispatch({
+      //     type: 'SET_BOZOBOY_&_MOLLYMOO',
+      //     bozoboymollymoo: response,
+      //   });
+      // });
     }
   }, []);
 
